@@ -6,7 +6,7 @@ function get_fresh_asset($file_path) {
     // 2. Set the Base URL dynamically
     if ($is_localhost) {
         // Points to your local XAMPP/WAMP folder
-        $base_url = '/brgy_test/'; 
+        $base_url = '/brgy_belair/'; 
     } else {
         // On Hostinger, the root domain is the base
         $base_url = '/';

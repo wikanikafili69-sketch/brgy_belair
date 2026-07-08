@@ -91,60 +91,50 @@ foreach ($dbOfficials as $off) {
         <div class="hero-slide-overlay"></div>
     </div>
 
-    <div class="hero-content-wrapper">
-        <div class="hero-left">
-            <div class="text-block">
-                <div class="hero-badge fade-in-up">
-                    <span class="hero-badge-dot"></span>
-                    <span>Serving Our Community Since 2008</span>
-                </div>
+    <div class="hero-content-wrapper hero-centered">
+        
+        <div class="hero-emblem-top fade-in-up">
+            <img src="<?php echo get_fresh_asset('Images/BARANGAY_ICON.png'); ?>" alt="Barangay Seal" class="emblem-seal-img">
+            <img src="<?php echo get_fresh_asset('Images/BARANGAY_ICON2.png'); ?>" alt="Barangay Secondary Seal" class="emblem-seal-img">
+        </div>
 
-                <h1 class="hero-title display-title fade-in-up" style="animation-delay:0.1s">
-                    BARANGAY<br>
-                    <span class="accent">BEL-AIR</span><br>
-                </h1>
+        <div class="hero-badge fade-in-up" style="animation-delay:0.1s">
+            <span class="hero-badge-dot"></span>
+            <span>Serving Our Community Since 2008</span>
+        </div>
 
-                <p class="hero-subtitle fade-in-up" style="animation-delay:0.2s">
-                    Connecting residents with essential public services — transparent,
-                    accessible, and built for the people of our barangay.
-                </p>
-            </div>
+        <h1 class="hero-title display-title fade-in-up" style="animation-delay:0.2s">
+            BARANGAY <span class="accent">BEL-AIR</span>
+        </h1>
 
-            <div class="action-block fade-in-up" style="animation-delay:0.3s">
-                <div class="hero-actions">
-                    <a href="<?php echo sanitize($buttonLink); ?>" class="btn-primary apply-clearance-btn">
-                        <span class="icon"><?php echo $buttonIcon; ?></span>
-                        <span class="btn-text">Click here for RBI/Census</span>
-                        <span class="btn-arrow">→</span>
-                    </a>
-                    <a href="#about" class="btn-secondary">Learn More →</a>
-                </div>
+        <p class="hero-subtitle fade-in-up" style="animation-delay:0.3s">
+            Connecting residents with essential public services — transparent, 
+            accessible, and built for the people of our barangay.
+        </p>
 
-                <div class="hero-stats">
-                    <?php foreach ($heroStats as $stat): ?>
-                        <div>
-                            <span class="hero-stat-num"><?php echo sanitize($stat['number']); ?></span>
-                            <span class="hero-stat-label"><?php echo sanitize($stat['label']); ?></span>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
+        <div class="hero-actions fade-in-up" style="animation-delay:0.4s">
+            <a href="<?php echo sanitize($buttonLink); ?>" class="btn-primary apply-clearance-btn">
+                <span class="icon">📋</span> <span class="btn-text">CLICK HERE FOR RBI/CENSUS</span>
+                <span class="btn-arrow">→</span>
+            </a>
+            <a href="#about" class="btn-secondary">Learn More →</a>
+        </div>
+
+        <div class="hero-stats-container fade-in-up" style="animation-delay:0.5s">
+            <div class="hero-stats">
+                <?php foreach ($heroStats as $stat): ?>
+                    <div class="stat-item">
+                        <span class="hero-stat-num"><?php echo sanitize($stat['number']); ?></span>
+                        <span class="hero-stat-label"><?php echo sanitize($stat['label']); ?></span>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
 
-        <div class="hero-right fade-in-right" style="animation-delay:0.35s">
-            <div class="hero-emblem">
-                <div class="emblem-inner">
-                       <img src="<?php echo get_fresh_asset('Images/BARANGAY_ICON.png'); ?>" alt="Barangay Seal" class="emblem-seal-img">
-                </div>
-            </div>
-        </div>
     </div>
 
     <div class="scroll-indicator">
-        <span class="scroll-text">Scroll to explore</span>
-        <div class="scroll-arrow">
-            <span></span><span></span><span></span>
-        </div>
+        <span class="scroll-text">SCROLL TO EXPLORE</span>
     </div>
 </main>
 
@@ -181,33 +171,18 @@ foreach ($dbOfficials as $off) {
 
 <section id="about" class="page-section dark-bg">
     <div class="container">
-
         <div class="about-grid-layout">
+            
+            <div class="about-content-column fade-in-left">
+                <span class="section-eyebrow">About Our Barangay</span>
+                <h2 class="section-title">Serving with <span>Integrity</span> &amp; Transparency</h2>
+                <div class="divider" style="margin:16px 0 24px;margin-left:0"></div>
 
-            <div class="about-left-column">
-                <div class="about-image-card fade-in-left">
-               <img src="<?php echo get_fresh_asset('Images/BARANGAY_BG.jpg'); ?>" alt="Barangay Hall" class="about-bg-img">
-                    <div class="about-image-overlay">
-                        <div>
-                            <span class="aio-stat-num">5,200+</span>
-                            <div class="aio-stat-lbl">Residents</div>
-                        </div>
-                        <div>
-                            <span class="aio-stat-num">8</span>
-                            <div class="aio-stat-lbl">Services Online</div>
-                        </div>
-                        <div>
-                            <span class="aio-stat-num">15+</span>
-                            <div class="aio-stat-lbl">Years Active</div>
-                        </div>
-                    </div>
-                    <div class="about-seal-watermark">
-                            <img src="<?php echo get_fresh_asset('Images/BARANGAY_ICON.png'); ?>" alt="Barangay Seal">
-                    </div>
-                </div>
+                <p class="about-text" style="margin:0 0 32px;max-width:100%">
+                    <?php echo sanitize($aboutText); ?>
+                </p>
 
-                <div class="about-left-actions fade-in-delayed" style="animation-delay:0.2s">
-
+                <div class="about-actions-row fade-in-delayed" style="animation-delay:0.2s">
                     <button id="open-vision-modal" class="about-btn">
                         <span class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -227,40 +202,53 @@ foreach ($dbOfficials as $off) {
                             </svg>
                         </span> Read Our Mission
                     </button>
-
                 </div>
             </div>
 
-            <div class="about-right-content fade-in-right">
-                <span class="section-eyebrow">About Our Barangay</span>
-                <h2 class="section-title">Serving with <span>Integrity</span> &amp; Transparency</h2>
-                <div class="divider" style="margin:16px 0 24px;margin-left:0"></div>
-
-                <p class="about-text" style="margin:0 0 32px;max-width:100%">
-                    <?php echo sanitize($aboutText); ?>
-                </p>
-
-                <div class="stats-grid" style="margin-top:0">
-                    <div class="stat-card fade-in-delayed" style="animation-delay:0.1s">
-                        <div class="stat-number">5,200+</div>
-                        <div class="stat-label">Residents</div>
+            <div class="about-image-column fade-in-right">
+                <div class="about-image-card">
+                    <img src="<?php echo get_fresh_asset('Images/BARANGAY_BG.jpg'); ?>" alt="Barangay Hall" class="about-bg-img">
+                    <div class="about-image-overlay">
+                        <div>
+                            <span class="aio-stat-num">5,200+</span>
+                            <div class="aio-stat-lbl">Residents</div>
+                        </div>
+                        <div>
+                            <span class="aio-stat-num">8</span>
+                            <div class="aio-stat-lbl">Services Online</div>
+                        </div>
+                        <div>
+                            <span class="aio-stat-num">15+</span>
+                            <div class="aio-stat-lbl">Years Active</div>
+                        </div>
                     </div>
-                    <div class="stat-card fade-in-delayed" style="animation-delay:0.2s">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Years Serving</div>
-                    </div>
-                    <div class="stat-card fade-in-delayed" style="animation-delay:0.3s">
-                        <div class="stat-number">8</div>
-                        <div class="stat-label">Online Services</div>
-                    </div>
-                    <div class="stat-card fade-in-delayed" style="animation-delay:0.4s">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Community Focused</div>
+                    <div class="about-seal-watermark">
+                        <img src="<?php echo get_fresh_asset('Images/BARANGAY_ICON.png'); ?>" alt="Barangay Seal">
                     </div>
                 </div>
             </div>
 
         </div>
+
+        <div class="about-stats-row fade-in-up" style="animation-delay:0.4s">
+            <div class="stat-card">
+                <div class="stat-number">5,200+</div>
+                <div class="stat-label">Residents</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Years Serving</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Online Services</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Community Focused</div>
+            </div>
+        </div>
+
     </div>
 </section>
 
