@@ -1,0 +1,241 @@
+/* ========================================
+   BARANGAY — OTHER CERTIFICATE FORM
+   CSS/queue_others_prompt_style.css
+   ======================================== */
+
+   /* ── TOPBAR (OTHERS VERSION) ── */
+.others-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.others-back-btn {
+    background: transparent;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+}
+
+.others-back-btn:hover {
+    color: #0f172a;
+}
+
+.others-topbar-title {
+    text-align: center;
+}
+
+.others-topbar-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #c8a84b;
+    text-transform: uppercase;
+}
+
+.others-topbar-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.others-topbar-spacer {
+    width: 60px;
+}
+
+/* ── OVERLAY ── */
+.others-form-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 18, 40, 0.75);
+    backdrop-filter: blur(6px);
+
+    z-index: 99998;
+    overflow-y: auto;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(30px);
+    transition: 0.3s ease;
+
+    display: flex;
+    flex-direction: column; /* 🔥 IMPORTANT */
+}
+
+.others-form-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ── FORM CONTAINER ── */
+#others-form-wrap {
+    background: #ffffff;
+    max-width: 900px; /* same as business */
+    width: 95%;
+    margin: 40px auto; /* 🔥 centers like business */
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* ── HEADER ── */
+.others-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.others-sub {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+/* ── FORM FIELDS ── */
+.others-row {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.others-row-2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+.others-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.others-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.others-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #0f172a;
+    background: #ffffff;
+    transition: all 0.2s;
+}
+
+.others-input:focus {
+    outline: none;
+    border-color: #2c57e5;
+    box-shadow: 0 0 0 3px rgba(44, 87, 229, 0.15);
+}
+
+/* ── BUTTONS ── */
+.others-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.others-save {
+    background: #2c57e5;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.others-save:hover {
+    background: #1e3fa7;
+}
+
+.others-cancel {
+    background: transparent;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.others-cancel:hover {
+    color: #ef4444;
+}
+
+/* ── ANIMATION ── */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+    .others-row-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── SECTION HEADER ── */
+.others-section-label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e3a5f;
+    margin: 25px 0 15px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #e2e8f0;
+    text-transform: uppercase;
+}
+
+
+.others-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.others-title span {
+    color: #c8a84b;
+}
+
+.others-sub {
+    font-size: 0.85rem;
+    color: #ef4444;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* ── ERROR STATE (MATCH BUSINESS) ── */
+.others-field.has-error .others-input {
+    border-color: #ef4444 !important;
+    background: #fff5f5;
+}
+
+.others-error-msg {
+    font-size: 0.75rem;
+    color: #ef4444;
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+.others-input::placeholder {
+    color: #94a3b8;
+}

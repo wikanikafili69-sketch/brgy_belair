@@ -1,0 +1,24 @@
+# local
+#RewriteEngine On
+#RewriteBase /brgy_system/
+
+# Custom alias: /login → staff.php
+#RewriteRule ^login/?$ staff.php [L]
+
+# (Optional) fallback for other .php files
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME}.php -f
+#RewriteRule ^([^/]+)/?$ $1.php [L]
+
+
+
+# hostinger
+RewriteEngine On
+
+# Force login → staff.php
+RewriteRule ^login/?$ /staff.php [L]
+
+# Clean URLs for other php files
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)/?$ /$1.php [L]

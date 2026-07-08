@@ -1,0 +1,291 @@
+/* ============================================================
+   BARANGAY 101 — ADMIN STAFF MANAGEMENT STYLES
+   File: CSS/Admin_css/admin_staff.css
+   ============================================================ */
+
+/* ── Custom Select & Search ───────────────────────────────── */
+.filter-select {
+    background: var(--bg);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    color: var(--text-mid);
+    font-family: var(--font-body);
+    outline: none;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.filter-select:focus, 
+.filter-select:hover {
+    border-color: var(--blue);
+    color: var(--text-dark);
+}
+
+.staff-search {
+    width: 240px;
+}
+.staff-search input {
+    width: 100%;
+}
+
+/* ── Role Badges ──────────────────────────────────────────── */
+.role-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.role--admin {
+    background: rgba(200, 168, 75, 0.15);
+    color: #a88a38;
+}
+
+.role--frontdesk {
+    background: rgba(44, 87, 229, 0.1);
+    color: var(--blue);
+}
+
+.role--certificate {
+    background: rgba(38, 181, 160, 0.12);
+    color: var(--teal);
+}
+
+.role--blotter {
+    background: rgba(139, 92, 246, 0.12);
+    color: var(--purple);
+}
+
+/* ── Status Indicators ────────────────────────────────────── */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--green); /* Default online */
+}
+
+.status--offline {
+    color: var(--text-muted);
+}
+
+.status--suspended {
+    color: var(--red);
+}
+
+.duty-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.duty-dot--online {
+    background: var(--green);
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.25);
+    animation: pulseDot 2s infinite;
+}
+
+.duty-dot--offline {
+    background: var(--muted-light);
+}
+
+@keyframes pulseDot {
+    0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+    70% { box-shadow: 0 0 0 4px rgba(34, 197, 94, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+/* ── Staff Action Buttons ─────────────────────────────────── */
+.btn-act--edit {
+    background: rgba(200, 168, 75, 0.12);
+    color: var(--gold);
+}
+.btn-act--edit:hover {
+    background: var(--gold);
+    color: var(--navy);
+}
+
+.btn-act--pass {
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--purple);
+}
+.btn-act--pass:hover {
+    background: var(--purple);
+    color: #fff;
+}
+
+.btn-act--suspend {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--red);
+}
+.btn-act--suspend:hover {
+    background: var(--red);
+    color: #fff;
+}
+
+/* ── Responsive Adjustments ───────────────────────────────── */
+@media (max-width: 768px) {
+    .staff-search {
+        width: 100%;
+        margin-top: 8px;
+    }
+    .panel-header-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .filter-select {
+        flex: 1;
+    }
+}
+
+
+/* ============================================================
+   ACCESS RIGHTS DROPDOWN & TABLE (UPDATED)
+   ============================================================ */
+
+/* 1. The Dropdown Container */
+.access-dropdown { 
+    position: relative; 
+    width: 100%; 
+}
+
+.dropdown-btn { 
+    width: 100%; 
+    text-align: left; 
+    background: #fff; 
+    border: 1px solid var(--border-light, #cbd5e1); 
+    padding: 12px 15px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    color: var(--text-dark, #1e293b); 
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: border-color 0.2s ease;
+}
+
+.dropdown-btn:hover {
+    border-color: var(--blue, #3b82f6);
+}
+
+/* 2. The Dropdown Menu (Hidden by default) */
+.dropdown-menu { 
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    width: 100%; 
+    background: #fff; 
+    border: 1px solid var(--border-light, #cbd5e1); 
+    border-radius: 8px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+    max-height: 220px; 
+    overflow-y: auto; 
+    z-index: 1050; /* HIGH enough to cover modal inputs */
+    margin-top: 5px; 
+    padding: 10px; 
+}
+
+.dropdown-menu.show { 
+    display: block; 
+}
+
+.dropdown-item { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    padding: 10px; 
+    cursor: pointer; 
+    font-size: 0.85rem; 
+    border-radius: 6px; 
+    transition: background 0.2s ease;
+    color: var(--text-dark, #1e293b);
+}
+
+.dropdown-item:hover { 
+    background: #f1f5f9; 
+}
+
+/* 3. The Selected Items Table */
+.access-table-wrap { 
+    margin-top: 15px; 
+    border: 1px solid var(--border-light, #cbd5e1); 
+    border-radius: 8px; 
+    overflow: hidden; 
+    background: #fff;
+}
+
+.access-table-wrap table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    font-size: 0.85rem; 
+}
+
+.access-table-wrap th { 
+    background: #f8fafc; 
+    padding: 10px 15px; 
+    text-align: left; 
+    font-weight: 600; 
+    color: var(--text-mid, #64748b); 
+    border-bottom: 1px solid var(--border-light, #cbd5e1); 
+}
+
+.access-table-wrap td { 
+    padding: 10px 15px; 
+    border-bottom: 1px solid var(--border-light, #cbd5e1); 
+    color: var(--text-dark, #1e293b); 
+}
+
+.access-table-wrap tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ============================================================
+   TOAST NOTIFICATION STYLES (UPDATED)
+   ============================================================ */
+.custom-toast {
+    position: fixed;
+    top: 24px;         /* Positions it at the top */
+    right: -400px;     /* Hides it off the right side of the screen initially */
+    background: #ffffff;
+    color: #1e293b;
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    z-index: 9999 !important; /* 🚨 CRITICAL: Forces Toast above everything else */
+    min-width: 300px;
+    border-left: 6px solid #22c55e; /* Default Success Green */
+    transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy slide-in effect */
+}
+
+/* Class added via JS to slide it in */
+.custom-toast.show {
+    right: 24px; 
+}
+
+/* Success Type Styles */
+.custom-toast.success { border-left-color: #22c55e; }
+.custom-toast.success #toastIcon { color: #22c55e; font-size: 1.25rem; }
+
+/* Error Type Styles */
+.custom-toast.error { border-left-color: #ef4444; }
+.custom-toast.error #toastIcon { color: #ef4444; font-size: 1.25rem; }
+
+/* Info Type Styles */
+.custom-toast.info { border-left-color: #3b82f6; }
+.custom-toast.info #toastIcon { color: #3b82f6; font-size: 1.25rem; }

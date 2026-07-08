@@ -1,0 +1,183 @@
+/* ============================================================
+   BARANGAY 101 — ADMIN REPORTS STYLES
+   File: CSS/Admin_css/admin_reports.css
+   ============================================================ */
+
+/* ── Reports Split Layout ─────────────────────────────────── */
+.reports-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+/* ── Left Sidebar (Categories) ────────────────────────────── */
+.reports-sidebar {
+    padding: 10px 0;
+    background: var(--white);
+}
+
+.report-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Matching the exact visual style from the uploaded image */
+.report-nav-item {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #0056b3; /* A link-blue color matching the image text */
+    cursor: pointer;
+    transition: background 0.2s ease, font-weight 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.report-nav-item:hover {
+    background: #f8f9fa;
+}
+
+/* Active state matches the slight gray background in the image */
+.report-nav-item.active {
+    background: #f8f9fa;
+    color: #0056b3;
+    border-left-color: var(--blue); /* Adds a subtle accent to know it's selected */
+}
+
+/* ── Right Main Panel ─────────────────────────────────────── */
+.report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-light);
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.report-main-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.report-main-sub {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.report-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Excel Button Style */
+.btn-export-excel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #107c41; /* Microsoft Excel Green */
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: all var(--transition);
+    box-shadow: 0 4px 12px rgba(16, 124, 65, 0.2);
+}
+
+.btn-export-excel:hover {
+    background: #0d6334;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(16, 124, 65, 0.3);
+}
+
+/* ── Filters Section ──────────────────────────────────────── */
+.report-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px 24px;
+    background: rgba(243, 245, 250, 0.5); /* Subtle background for filter area */
+    border-bottom: 1px solid var(--border-light);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filter-group label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-input {
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background: var(--white);
+    outline: none;
+    transition: border-color var(--transition);
+    height: 38px;
+}
+
+.filter-input:focus {
+    border-color: var(--blue);
+}
+
+/* ── Preview Table Footer ─────────────────────────────────── */
+.preview-footer {
+    padding: 16px 24px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+    border-top: 1px solid var(--border-light);
+    background: var(--bg);
+}
+
+/* ── Responsive Adjustments ───────────────────────────────── */
+@media (max-width: 900px) {
+    .reports-layout {
+        grid-template-columns: 1fr;
+    }
+    .report-nav-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .report-nav-item {
+        flex: 1;
+        text-align: center;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+    .report-nav-item.active {
+        border-left: none;
+        border-bottom-color: var(--blue);
+    }
+}
+
+@media (max-width: 600px) {
+    .report-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .report-filters {
+        flex-direction: column;
+    }
+    .filter-group {
+        width: 100%;
+    }
+}

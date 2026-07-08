@@ -1,0 +1,129 @@
+/* ========================================================
+   FORMAL CERTIFICATE PRINT TEMPLATE
+   ======================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Tinos:ital,wght@0,400;0,700;1,400&display=swap');
+
+.certificate-paper {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 800px;
+    min-height: 1050px; /* Approx 8.5x11 ratio */
+    margin: 0 auto;
+    padding: 60px 80px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    color: #000000;
+    font-family: 'Tinos', 'Times New Roman', serif;
+    position: relative;
+    line-height: 1.6;
+}
+
+.cert-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cert-header p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.cert-header .brgy-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+.cert-header .office-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    margin-top: 15px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+}
+
+.cert-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 40px 0;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.cert-greeting {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.cert-body {
+    font-size: 1.15rem;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+.cert-body p {
+    text-indent: 50px;
+    margin-bottom: 20px;
+}
+
+.cert-body strong {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.cert-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 80px;
+}
+
+.signature-block {
+    text-align: center;
+    width: 300px;
+}
+
+.signature-name {
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid #000;
+    margin-bottom: 5px;
+    padding-bottom: 2px;
+}
+
+.signature-title {
+    font-size: 1rem;
+}
+
+.official-seal-placeholder {
+    position: absolute;
+    bottom: 80px;
+    left: 80px;
+    width: 120px;
+    height: 120px;
+    border: 2px dashed #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* Print Overrides */
+@media print {
+    body * { visibility: hidden; }
+    .print-area, .print-area * { visibility: visible; }
+    .print-area { position: absolute; left: 0; top: 0; width: 100%; }
+    .certificate-paper { box-shadow: none; padding: 0; margin: 0; }
+    .modal-fullscreen { background: transparent; }
+    .no-print { display: none !important; }
+}

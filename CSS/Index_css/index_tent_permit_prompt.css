@@ -1,0 +1,113 @@
+/* ========================================
+   BARANGAY — TENT PERMIT
+   CSS/index_tent_permit_prompt.css
+   Inherits base from index_residency_prompt.css
+   ======================================== */
+
+/* ── FIELD ───────────────────────────────────────────── */
+.tp-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+}
+
+.tp-field.has-error .rbi-input,
+.tp-field.has-error .rbi-select {
+    border-color: #dc2626 !important;
+    background: #fff5f5;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.08);
+}
+
+/* ── ERROR MESSAGES ──────────────────────────────────── */
+.tp-error-msg {
+    font-size: 0.73rem;
+    color: #dc2626;
+    font-weight: 500;
+    min-height: 16px;
+    display: block;
+}
+
+/* ── NARROW FIELD ────────────────────────────────────── */
+.tp-field-narrow {
+    max-width: 340px;
+}
+
+/* ── EXTRA ROW ANIMATION ─────────────────────────────── */
+.tp-extra-row.tp-animate-in {
+    animation: tpRowSlideIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes tpRowSlideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ========================================
+   BARANGAY — TENT PERMIT
+   CSS/index_tent_permit_prompt.css
+   Inherits base from index_residency_prompt.css
+   ======================================== */
+
+/* ── FIELD ───────────────────────────────────────────── */
+.tp-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+}
+
+.tp-field.has-error .rbi-input,
+.tp-field.has-error .rbi-select {
+    border-color: #dc2626 !important;
+    background: #fff5f5;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.08);
+}
+
+/* ── ERROR MESSAGES ──────────────────────────────────── */
+.tp-error-msg {
+    font-size: 0.73rem;
+    color: #dc2626;
+    font-weight: 500;
+    min-height: 16px;
+    display: block;
+}
+
+/* ── NARROW FIELD ────────────────────────────────────── */
+.tp-field-narrow {
+    max-width: 340px;
+}
+
+/* ── EXTRA ROW ANIMATION ─────────────────────────────── */
+.tp-extra-row.tp-animate-in {
+    animation: tpRowSlideIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes tpRowSlideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── DATE PICKER STYLING ─────────────────────────────── */
+input[type="date"].rbi-input {
+    text-transform: uppercase;
+    font-family: inherit;
+    cursor: pointer;
+    position: relative;
+    /* Ensure height stays consistent with other text inputs */
+    line-height: 1.5; 
+}
+
+/* Customizing the little calendar icon on the right */
+input[type="date"].rbi-input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s ease-in-out;
+}
+
+input[type="date"].rbi-input::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}

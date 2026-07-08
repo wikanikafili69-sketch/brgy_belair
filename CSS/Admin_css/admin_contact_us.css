@@ -1,0 +1,379 @@
+/* ============================================================
+   BARANGAY 101 — ADMIN CONTACT US STYLES
+   File: CSS/Admin_css/admin_contact_us.css
+   ============================================================ */
+
+/* ── Panel Header Controls ────────────────────────────────── */
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px 22px;
+}
+
+.entries-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-select {
+    background: var(--bg);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    outline: none;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.filter-select:focus {
+    border-color: var(--blue);
+}
+
+.contact-search {
+    width: 260px;
+    background: var(--white);
+}
+
+.contact-search input {
+    width: 100%;
+}
+
+/* ── Status Badges ────────────────────────────────────────── */
+.contact-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.unread-badge {
+    background: rgba(13, 110, 253, 0.1);
+    color: #0d6efd;
+    border: 1px solid rgba(13, 110, 253, 0.2);
+}
+
+.read-badge {
+    background: rgba(108, 117, 125, 0.1);
+    color: #6c757d;
+    border: 1px solid rgba(108, 117, 125, 0.2);
+}
+
+.row-unread td {
+    background-color: rgba(13, 110, 253, 0.02);
+}
+
+/* ── Table Layout Adjustments ─────────────────────────────── */
+.contact-table-wrap {
+    width: 100%;
+    overflow-x: auto; 
+    border-bottom: 1px solid var(--border-light);
+}
+
+.contact-table {
+    width: 100%;
+    white-space: normal;
+    table-layout: auto; 
+}
+
+.contact-table th, 
+.contact-table td {
+    padding: 12px 10px; 
+    word-wrap: break-word;
+    word-break: break-word;
+    vertical-align: middle; 
+}
+
+.contact-table thead th {
+    font-size: 0.68rem;
+    color: var(--text-dark);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.contact-table td {
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+/* ── Action Buttons ───────────────────────────────────────── */
+.action-group {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.btn-act--view {
+    background: rgba(38, 181, 160, 0.12);
+    color: var(--teal);
+    border: 1px solid rgba(38, 181, 160, 0.3);
+}
+.btn-act--view:hover {
+    background: var(--teal);
+    color: #fff;
+}
+
+.btn-act--reject {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--red);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+.btn-act--reject:hover {
+    background: var(--red);
+    color: #fff;
+}
+
+/* ── Pagination Text Buttons ──────────────────────────────── */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 22px;
+    background: var(--white);
+}
+
+.page-controls {
+    display: flex;
+    gap: 4px;
+}
+
+.page-btn {
+    height: 32px;
+    border: 1px solid var(--border-light);
+    background: var(--bg);
+    border-radius: 4px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    cursor: pointer; 
+    font-size: 0.8rem; 
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--text-mid);
+    transition: all var(--transition);
+    min-width: 32px;
+    padding: 0 10px;
+}
+
+.page-btn.active {
+    background: #0d6efd;
+    color: #fff;
+    border-color: #0d6efd;
+}
+
+.page-text-btn {
+    color: var(--muted);
+}
+.page-text-btn:disabled {
+    background: transparent;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ── Mobile Card View (Base Styles) ───────────────────────── */
+.view-toggle-wrap {
+    display: none;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.btn-view-toggle {
+    padding: 6px 14px;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    font-size: 0.78rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--text-mid);
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.btn-view-toggle.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.contact-cards {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 16px;
+}
+
+.contact-card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.contact-card.unread {
+    border-left: 4px solid var(--blue);
+}
+
+.contact-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 8px;
+}
+
+.contact-card-date {
+    font-size: 0.75rem;
+    color: var(--text-mid);
+}
+
+.contact-card-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.8rem;
+}
+
+.contact-card-row:last-of-type {
+    border-bottom: none;
+}
+
+.contact-card-label {
+    color: var(--text-mid);
+    font-weight: 600;
+    white-space: nowrap;
+    min-width: 90px;
+}
+
+.contact-card-val {
+    color: var(--text-dark);
+    text-align: right;
+    word-break: break-word;
+    font-weight: 500;
+}
+
+.contact-card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    justify-content: flex-end;
+}
+
+/* ── Responsive Adjustments (Unified) ─────────────────────── */
+
+/* Desktop: Always show table, hide cards & view toggles */
+@media (min-width: 769px) {
+    .contact-table-wrap { display: block !important; }
+    .contact-cards { display: none !important; }
+    .view-toggle-wrap { display: none !important; }
+}
+
+/* Mobile & Tablets (Max 768px) */
+@media (max-width: 768px) {
+    /* 1. Header Controls */
+    .table-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    .contact-search, .contact-search input {
+        width: 100%;
+    }
+    .entries-wrap {
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    /* 2. Show View Toggles */
+    .view-toggle-wrap { display: flex; }
+
+    /* 3. Default Mobile View: Cards (Hides Table) */
+    .contact-table-wrap { display: none !important; }
+    .contact-cards { display: flex; }
+
+    /* 4. JS Toggle Classes (if you click 'Table View') */
+    .mobile-table-view .contact-table-wrap { 
+        display: block !important; 
+        overflow-x: auto !important; 
+        -webkit-overflow-scrolling: touch; 
+    }
+    .mobile-table-view .contact-table { 
+        min-width: 800px; /* Forces scrolling instead of squishing */
+        white-space: nowrap;
+    }
+    .mobile-table-view .contact-table td,
+    .mobile-table-view .contact-table th {
+        white-space: nowrap;
+    }
+    .mobile-table-view .contact-cards { display: none !important; }
+
+    /* JS Toggle Classes (if you click 'Card View') */
+    .mobile-card-view .contact-table-wrap { display: none !important; }
+    .mobile-card-view .contact-cards { display: flex !important; }
+
+    /* 5. Pagination Mobile Fix */
+    .pagination {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+/* Very Small Phones (Max 480px) */
+@media (max-width: 480px) {
+    .contact-card-actions {
+        flex-direction: column;
+    }
+    .contact-card-actions button {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Modals adjustments */
+    .modal {
+        padding: 16px;
+        margin: 10px;
+    }
+    .modal-footer {
+        flex-direction: column;
+    }
+    .modal-footer button {
+        width: 100%;
+    }
+}
+
+/* ── MODAL OVERLAY STYLES ───────────────────────────────── */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(8, 17, 43, 0.7); backdrop-filter: blur(4px);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 9999; opacity: 0; pointer-events: none; transition: all 0.3s ease;
+}
+.modal-overlay.active {
+    opacity: 1; pointer-events: auto;
+}
+.modal {
+    background: var(--white); border-radius: 12px; width: 100%; max-width: 600px;
+    padding: 24px; transform: translateY(20px) scale(0.95); transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); max-height: 90vh; overflow-y: auto;
+}
+.modal--sm { max-width: 480px; }
+.modal-overlay.active .modal { transform: translateY(0) scale(1); }
+.modal-header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid var(--border-light); padding-bottom: 16px; margin-bottom: 16px; }
+.modal-title { font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin: 0 0 4px 0; }
+.modal-sub { font-size: 0.8rem; color: var(--text-mid); margin: 0; }
+.modal-close { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--text-mid); transition: 0.2s; }
+.modal-close:hover { color: var(--red); }
+.detail-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--bg); }
+.detail-label { font-size: 0.8rem; color: var(--text-mid); font-weight: 600; }
+.detail-value { font-size: 0.85rem; color: var(--text-dark); text-align: right; }
+.modal-footer { display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-light); }

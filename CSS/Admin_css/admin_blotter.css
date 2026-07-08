@@ -1,0 +1,483 @@
+/* ============================================================
+   BARANGAY 101 — ADMIN BLOTTER STYLES
+   File: CSS/Admin_css/admin_blotter.css
+   ============================================================ */
+
+/* ── Panel Header Controls ────────────────────────────────── */
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px 22px;
+}
+
+.entries-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-select {
+    background: var(--bg);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    outline: none;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.filter-select:focus {
+    border-color: var(--blue);
+}
+
+.blotter-search {
+    width: 260px;
+    background: var(--white);
+}
+
+.blotter-search input {
+    width: 100%;
+}
+
+/* ── Table Layout Adjustments (Fitted without scrolling) ──── */
+.blotter-table-wrap {
+    width: 100%;
+    /* Keep auto for mobile devices, but on desktop it will fit */
+    overflow-x: auto; 
+    border-bottom: 1px solid var(--border-light);
+}
+
+.blotter-table {
+    width: 100%;
+    white-space: normal; /* Allows text to wrap into multiple lines */
+    table-layout: auto; 
+}
+
+/* Reduce padding globally for this specific table to save horizontal space */
+.blotter-table th, 
+.blotter-table td {
+    padding: 10px 6px; 
+    word-wrap: break-word;
+    word-break: break-word; /* Prevents long contiguous text from stretching the table */
+    vertical-align: top; /* Aligns text to the top since rows might be multi-line */
+}
+
+.blotter-table thead th {
+    font-size: 0.65rem; /* Slightly smaller header text */
+    color: var(--text-dark);
+    font-weight: 800;
+    letter-spacing: 0; /* Remove letter spacing to compress width */
+    line-height: 1.2;
+}
+
+.blotter-table td {
+    font-size: 0.72rem; /* Slightly smaller body text */
+    text-transform: uppercase;
+    line-height: 1.3;
+}
+
+/* ── Action Buttons matching the reference image colors ───── */
+.action-group {
+    display: flex;
+    gap: 4px; /* Reduce gap slightly to save space */
+    flex-wrap: wrap; /* Allows buttons to stack if space gets too tight */
+}
+
+.btn-act--edit {
+    background: rgba(245, 158, 11, 0.12); /* Gold/Yellow base */
+    color: var(--orange);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+.btn-act--edit:hover {
+    background: var(--orange);
+    color: #fff;
+}
+
+.btn-act--view {
+    background: rgba(38, 181, 160, 0.12); /* Cyan/Teal base */
+    color: var(--teal);
+    border: 1px solid rgba(38, 181, 160, 0.3);
+}
+.btn-act--view:hover {
+    background: var(--teal);
+    color: #fff;
+}
+
+.btn-act--reject {
+    border: 1px solid rgba(239, 68, 68, 0.3); /* Adds the red border seen in the image */
+}
+
+/* ── Pagination Text Buttons ("Previous" / "Next") ────────── */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 22px;
+    background: var(--white);
+}
+
+.page-controls {
+    display: flex;
+    gap: 4px;
+}
+
+.page-btn {
+    height: 32px;
+    border: 1px solid var(--border-light);
+    background: var(--bg);
+    border-radius: 4px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    cursor: pointer; 
+    font-size: 0.8rem; 
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--text-mid);
+    transition: all var(--transition);
+    min-width: 32px;
+    padding: 0 10px;
+}
+
+.page-btn.active {
+    background: #0d6efd; /* Bootstrap blue to match image exactly */
+    color: #fff;
+    border-color: #0d6efd;
+}
+
+.page-text-btn {
+    color: var(--muted);
+}
+.page-text-btn:disabled {
+    background: transparent;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ── Responsive Adjustments ───────────────────────────────── */
+@media (max-width: 768px) {
+    .table-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .blotter-search {
+        width: 100%;
+    }
+}
+
+/* ── Mobile Card View ─────────────────────────────────────── */
+.view-toggle-wrap {
+    display: none;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.btn-view-toggle {
+    padding: 6px 14px;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    font-size: 0.78rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--text-mid);
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.btn-view-toggle.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.blotter-cards {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 16px;
+}
+
+.blotter-card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.blotter-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    gap: 8px;
+}
+
+.blotter-card-case {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.blotter-card-type {
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 20px;
+    background: rgba(13, 110, 253, 0.1);
+    color: #0d6efd;
+    white-space: nowrap;
+}
+
+.blotter-card-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.75rem;
+}
+
+.blotter-card-row:last-of-type {
+    border-bottom: none;
+}
+
+.blotter-card-label {
+    color: var(--text-mid);
+    font-weight: 600;
+    white-space: nowrap;
+    min-width: 90px;
+}
+
+.blotter-card-val {
+    color: var(--text-dark);
+    text-align: right;
+    word-break: break-word;
+    font-weight: 500;
+}
+
+.blotter-card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+    .view-toggle-wrap {
+        display: flex;
+    }
+
+    .table-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .blotter-search {
+        width: 100%;
+    }
+
+    /* Hide table on mobile when card view is active */
+    .mobile-card-view .blotter-table-wrap {
+        display: none;
+    }
+
+    .mobile-card-view .blotter-cards {
+        display: flex;
+    }
+
+    /* Show table when table view is active */
+    .mobile-table-view .blotter-table-wrap {
+        display: block;
+    }
+
+    .mobile-table-view .blotter-cards {
+        display: none;
+    }
+
+    /* Default state on mobile = card view */
+    .blotter-table-wrap {
+        display: none;
+    }
+
+    .blotter-cards {
+        display: flex;
+    }
+}
+
+@media (min-width: 769px) {
+    .blotter-table-wrap {
+        display: block !important;
+    }
+    .blotter-cards {
+        display: none !important;
+    }
+    .view-toggle-wrap {
+        display: none !important;
+    }
+}
+
+/* ── Mobile Horizontal Table Scroll ──────────────────────── */
+@media (max-width: 768px) {
+    .blotter-table-wrap {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+        display: block !important;
+    }
+
+    .blotter-table {
+        min-width: 900px; /* forces the table to stay wide so it scrolls */
+        white-space: nowrap;
+    }
+
+    .blotter-table td,
+    .blotter-table th {
+        white-space: nowrap;
+    }
+}
+
+
+/* ── CUSTOM AUTOCOMPLETE DROPDOWN ── */
+.autocomplete-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.custom-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 9999;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: none; /* Hidden by default */
+}
+
+.custom-dropdown li {
+  padding: 10px 14px;
+  font-size: 0.875rem;
+  color: #374151;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  border-bottom: 1px solid #f3f4f6;
+  font-family: inherit;
+}
+
+.custom-dropdown li:last-child {
+  border-bottom: none;
+}
+
+.custom-dropdown li:hover {
+  background-color: #eff6ff; /* Soft blue hover */
+  color: #1d4ed8;
+}
+
+/* ── ACTIVE BLOTTER HIGHLIGHTS (Different from Priority View) ── */
+
+/* Pulsing red dot animation */
+.status-indicator-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--red, #ef4444);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+    box-shadow: 0 0 0 rgba(239, 68, 68, 0.4);
+    animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+    70% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+/* Table Row Highlight - Thick left border instead of full background */
+tr.active-blotter-row {
+    background-color: rgba(239, 68, 68, 0.03); 
+}
+tr.active-blotter-row td:first-child {
+    border-left: 4px solid var(--red, #ef4444) !important;
+}
+
+/* Mobile Card Highlight */
+.blotter-card.active-blotter-card {
+    border-left: 5px solid var(--red, #ef4444);
+    background: linear-gradient(to right, rgba(239,68,68,0.05) 0%, #fff 15%);
+}
+
+/* Warning Banner for the View Modal */
+.active-warning-banner {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #fecaca;
+    border-left: 4px solid #dc2626;
+}
+
+.autocomplete-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.custom-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 99999 !important; /* This forces it above the modal */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    margin: 4px 0 0 0;
+    padding: 0;
+}
+
+.custom-dropdown li {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.custom-dropdown li:last-child {
+    border-bottom: none;
+}
+
+.custom-dropdown li:hover {
+    background-color: #f8fafc;
+    color: var(--primary);
+}
+
+.modal-body {
+    /* Prevents the modal from cutting off the dropdown list */
+    overflow: visible !important; 
+}

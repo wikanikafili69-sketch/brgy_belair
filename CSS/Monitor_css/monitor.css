@@ -1,0 +1,169 @@
+/* ========================================
+   MONITOR DISPLAY (TV STYLE)
+   ======================================== */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #08112b;
+    color: white;
+}
+
+/* Wrapper */
+.wrapper {
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+/* Row Titles */
+.row-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    text-align: center;
+    color: #fbbf24;
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* ✅ CHANGED FROM 3 TO 2 COLUMNS */
+    gap: 30px; /* Slightly increased gap for better breathing room */
+    margin: 0 auto 20px auto; /* Centers the grid */
+    max-width: 1400px; /* Keeps the cards from getting too stretched on huge TVs */
+}
+
+/* Cards */
+.card {
+    background: rgba(17, 30, 69, 0.9);
+    border-radius: 12px;
+    padding: 20px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card Title */
+.title {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+/* List Container */
+.list {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Queue Item */
+.queue-item {
+    background: #1e293b;
+    margin: 8px 0;
+    padding: 14px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 32px;   /* BIG FOR TV */
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* PROCESSING STYLE */
+.processing {
+    background: #f59e0b;
+    color: black;
+    animation: pulse 1.5s infinite;
+}
+
+/* EMPTY */
+.empty {
+    opacity: 0.5;
+}
+
+/* ANIMATION */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* SCROLLBAR (OPTIONAL CLEAN LOOK) */
+.list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.list::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+/* TOP BAR */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* FLAG BUTTON */
+.lang-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+/* DATE TIME */
+.datetime {
+    font-size: 18px;
+    color: #fbbf24;
+}
+
+/* NEW QUEUE FLASH */
+.flash {
+    animation: flashAnim 1s ease 3;
+}
+
+@keyframes flashAnim {
+    0% { background: #22c55e; }
+    50% { background: #4ade80; }
+    100% { background: inherit; }
+}
+
+.audio-start {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #22c55e;
+    color: black;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 9999;
+}
+
+.mute-btn {
+    font-size: 22px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.mute-btn:hover {
+    background: rgba(255,255,255,0.2);
+}

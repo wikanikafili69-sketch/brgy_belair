@@ -1,0 +1,489 @@
+/* ========================================
+   BARANGAY — RBI REGISTRATION MODAL CSS
+   index_rbi_modal.css  (Light Theme)
+   ======================================== */
+
+/* ══════════════════════════════════════
+   OVERLAY
+══════════════════════════════════════ */
+.rbi-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  background: rgba(10, 20, 50, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.38s ease;
+  overflow-y: auto;
+}
+.rbi-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ══════════════════════════════════════
+   MODAL PANEL — WHITE
+══════════════════════════════════════ */
+.rbi-modal {
+  background: #ffffff;
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  transform: translateY(-60px);
+  transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.38s ease;
+  opacity: 0;
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(0, 0, 0, 0.06);
+  min-height: 100vh;
+}
+.rbi-overlay.active .rbi-modal {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ══════════════════════════════════════
+   TOP BAR
+══════════════════════════════════════ */
+.rbi-topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 60px;
+  border-bottom: 1px solid #e5e8f0;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.rbi-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  border: 1.5px solid #0d1c3f;
+  color: #0d1c3f;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  font-family: 'DM Sans', sans-serif;
+  flex-shrink: 0;
+}
+.rbi-back-btn:hover {
+  background: #0d1c3f;
+  color: #ffffff;
+  transform: translateX(-3px);
+}
+.rbi-back-btn svg {
+  width: 13px; height: 13px;
+  transition: transform 0.2s ease;
+}
+.rbi-back-btn:hover svg { transform: translateX(-2px); }
+
+.rbi-topbar-title { flex: 1; text-align: center; }
+.rbi-topbar-eyebrow {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #c8a84b;
+  margin-bottom: 2px;
+}
+.rbi-topbar-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0d1c3f;
+  margin: 0;
+}
+.rbi-topbar-spacer { width: 110px; flex-shrink: 0; }
+
+/* ══════════════════════════════════════
+   FORM HEADER
+══════════════════════════════════════ */
+.rbi-form-header {
+  text-align: center;
+  padding: 36px 60px 20px;
+  background: #f7f8fc;
+  border-bottom: 1px solid #e5e8f0;
+}
+.rbi-form-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-weight: 700;
+  color: #0d1c3f;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+.rbi-form-title span { color: #2c57e5; }
+.rbi-form-divider {
+  width: 48px; height: 3px;
+  background: linear-gradient(90deg, #c8a84b, #2c57e5);
+  border-radius: 2px;
+  margin: 0 auto 14px;
+}
+.rbi-form-notice {
+  font-size: 0.78rem;
+  color: #e05050;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* ══════════════════════════════════════
+   FORM BODY
+══════════════════════════════════════ */
+.rbi-form-body {
+  padding: 32px 60px 52px;
+  background: #ffffff;
+}
+
+/* ── Section Labels ── */
+.rbi-section-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #2c57e5;
+  margin: 30px 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.rbi-section-label::after {
+  content: '';
+  flex: 1;
+  height: 1.5px;
+  background: #e5e8f0;
+}
+
+/* ── Field Rows ── */
+.rbi-row { display: grid; gap: 16px; margin-bottom: 16px; }
+.rbi-row-2          { grid-template-columns: 1fr 1fr; }
+.rbi-row-3          { grid-template-columns: 1fr 1fr 1fr; }
+.rbi-row-4          { grid-template-columns: 1fr 1fr 1fr 1fr; }
+.rbi-row-custom-top { grid-template-columns: 1.4fr 1.3fr 1.3fr; }
+.rbi-row-name       { grid-template-columns: 1fr 1fr 1fr 0.6fr; }
+.rbi-row-contact    { grid-template-columns: 1.1fr 1fr 1fr 0.7fr; }
+
+/* ── Field Group ── */
+.rbi-field { display: flex; flex-direction: column; gap: 6px; }
+
+.rbi-label {
+  font-size: 0.73rem;
+  font-weight: 700;
+  color: #2a3a5c;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.rbi-label .req { color: #e05050; font-size: 0.78rem; }
+
+/* ── Inputs & Selects ── */
+.rbi-input,
+.rbi-select {
+  width: 100%;
+  background: #f7f8fc;
+  border: 1.5px solid #d0d8ea;
+  border-radius: 9px;
+  color: #1a2a4a;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 400;
+  padding: 10px 14px;
+  height: 42px;
+  transition: all 0.22s ease;
+  outline: none;
+}
+.rbi-input::placeholder { color: #a0aec0; font-size: 0.78rem; }
+.rbi-input:focus,
+.rbi-select:focus {
+  border-color: #2c57e5;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(44, 87, 229, 0.1);
+}
+.rbi-input:hover:not(:focus):not([readonly]),
+.rbi-select:hover:not(:focus) {
+  border-color: #a0b0d0;
+  background: #ffffff;
+}
+.rbi-input[readonly],
+.rbi-input:disabled,
+.rbi-select:disabled {
+  background: #eef1f8;
+  color: #8fa0c0;
+  cursor: default;
+}
+.rbi-input.auto-calc {
+  background: #eef1f8;
+  color: #8fa0c0;
+  font-style: italic;
+  cursor: default;
+}
+
+/* Select arrow */
+.rbi-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232a3a5c' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 13px center;
+  background-color: #f7f8fc;
+  padding-right: 34px;
+  cursor: pointer;
+}
+.rbi-select option { background: #ffffff; color: #1a2a4a; }
+
+/* ── File Input ── */
+.rbi-file-wrapper {
+  display: flex;
+  align-items: center;
+  background: #f7f8fc;
+  border: 1.5px solid #d0d8ea;
+  border-radius: 9px;
+  overflow: hidden;
+  height: 42px;
+  transition: all 0.22s ease;
+}
+.rbi-file-wrapper:hover,
+.rbi-file-wrapper:focus-within {
+  border-color: #2c57e5;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(44, 87, 229, 0.08);
+}
+.rbi-file-btn {
+  background: #0d1c3f;
+  border: none;
+  border-right: 1px solid #1a2d5a;
+  color: #ffffff;
+  padding: 0 16px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  height: 100%;
+  white-space: nowrap;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s;
+}
+.rbi-file-btn:hover { background: #1a2d5a; }
+.rbi-file-name {
+  flex: 1;
+  padding: 0 12px;
+  font-size: 0.75rem;
+  color: #a0aec0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rbi-file-input-hidden { display: none; }
+
+/* Household number */
+.rbi-input.readonly-field {
+  color: #2c57e5;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: #eef2ff;
+  border-color: rgba(44, 87, 229, 0.25);
+}
+
+/* ══════════════════════════════════════
+   TERMS & SUBMIT
+══════════════════════════════════════ */
+.rbi-terms-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 32px 0 24px;
+  padding: 16px 18px;
+  background: #f7f8fc;
+  border: 1.5px solid #e5e8f0;
+  border-radius: 10px;
+}
+.rbi-checkbox {
+  width: 17px; height: 17px;
+  accent-color: #2c57e5;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.rbi-terms-label {
+  font-size: 0.82rem;
+  color: #2a3a5c;
+  cursor: pointer;
+  font-weight: 500;
+}
+.rbi-terms-label a {
+  color: #2c57e5;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.rbi-submit-row { text-align: center; margin-top: 6px; }
+.rbi-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #c8a84b, #e0cc80);
+  color: #08112b;
+  border: none;
+  padding: 14px 52px;
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition: all 0.28s ease;
+  box-shadow: 0 6px 24px rgba(200, 168, 75, 0.3);
+}
+.rbi-submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(200, 168, 75, 0.45);
+  background: linear-gradient(135deg, #dab94f, #c8a84b);
+}
+.rbi-submit-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.rbi-submit-btn .submit-icon { font-size: 1rem; }
+
+/* ══════════════════════════════════════
+   SUCCESS STATE
+══════════════════════════════════════ */
+.rbi-success {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 32px;
+  text-align: center;
+  min-height: 60vh;
+  background: #ffffff;
+}
+.rbi-success.visible { display: flex; }
+.rbi-success-icon {
+  font-size: 4rem;
+  margin-bottom: 24px;
+  animation: bounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.rbi-success-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0d1c3f;
+  margin-bottom: 12px;
+}
+.rbi-success-sub {
+  font-size: 0.92rem;
+  color: #5a6a8a;
+  line-height: 1.8;
+  max-width: 420px;
+  margin-bottom: 32px;
+}
+.rbi-success-ref {
+  background: #f7f8fc;
+  border: 1.5px solid #d0d8ea;
+  border-radius: 12px;
+  padding: 14px 32px;
+  font-size: 0.82rem;
+  color: #2c57e5;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 32px;
+}
+@keyframes bounceIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* ══════════════════════════════════════
+   VALIDATION
+══════════════════════════════════════ */
+.rbi-field.has-error .rbi-input,
+.rbi-field.has-error .rbi-select,
+.rbi-field.has-error .rbi-file-wrapper {
+  border-color: #e05050 !important;
+  background: #fff8f8 !important;
+  box-shadow: 0 0 0 3px rgba(224, 80, 80, 0.1);
+}
+.rbi-error-msg {
+  font-size: 0.68rem;
+  color: #e05050;
+  font-weight: 600;
+  margin-top: 2px;
+  display: none;
+}
+.rbi-field.has-error .rbi-error-msg { display: block; }
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 780px) {
+  .rbi-form-body      { padding: 20px 24px 36px; }
+  .rbi-topbar         { padding: 14px 24px; }
+  .rbi-form-header    { padding: 24px 24px 16px; }
+  .rbi-row-4          { grid-template-columns: 1fr 1fr; }
+  .rbi-row-3          { grid-template-columns: 1fr 1fr; }
+  .rbi-row-name       { grid-template-columns: 1fr 1fr; }
+  .rbi-row-contact    { grid-template-columns: 1fr 1fr; }
+  .rbi-row-custom-top { grid-template-columns: 1fr 1fr; }
+  .rbi-topbar-spacer  { display: none; }
+}
+@media (max-width: 480px) {
+  .rbi-row-2, .rbi-row-3, .rbi-row-4,
+  .rbi-row-name, .rbi-row-contact, .rbi-row-custom-top {
+    grid-template-columns: 1fr;
+  }
+  .rbi-submit-btn { padding: 14px 36px; }
+}
+
+
+/* ========================================
+   BARANGAY — RBI REGISTRATION MODAL CSS
+   index_rbi_modal.css  (Light Theme)
+   ======================================== */
+
+/* ... KEEP ALL YOUR EXISTING CSS ABOVE, THEN ADD THIS AT THE BOTTOM ... */
+
+/* ── EXTRA ROW ANIMATION ─────────────────────────────── */
+.rbi-animate-in {
+    animation: rbiRowSlideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes rbiRowSlideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Ensure Readonly inputs look distinct (e.g., Address dummy text) */
+.rbi-input.readonly-field {
+    color: #2c57e5;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: #eef2ff !important; /* Force the color over hover rules */
+    border-color: rgba(44, 87, 229, 0.25);
+    cursor: not-allowed;
+}
+
+.rbi-row-1 {
+    grid-template-columns: 1fr;
+}

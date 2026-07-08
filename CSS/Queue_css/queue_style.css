@@ -1,0 +1,371 @@
+/* ========================================
+   BARANGAY MANAGEMENT SYSTEM
+   queue_style.css — Login & Kiosk Styles
+   ======================================== */
+
+.login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    background: 
+        linear-gradient(135deg, rgba(8,17,43,0.85) 0%, rgba(8,17,43,0.75) 50%, rgba(8,17,43,0.90) 100%),
+        url('../../Images/BARANGAY_BG.jpg') center center / cover no-repeat fixed;
+}
+
+.login-card {
+    background: rgba(17, 30, 69, 0.85); /* Matches --navy-card */
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 10;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--muted-light);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form-control {
+    width: 100%;
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    color: var(--white);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--blue-light);
+    box-shadow: 0 0 0 3px var(--blue-glow);
+}
+
+.toggle-btn {
+    position: absolute;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.toggle-btn:hover {
+    color: var(--gold-light);
+}
+
+.login-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 12px;
+    padding: 14px;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--gold);
+}
+
+
+/* ========================================
+   MODAL & PAGE FIXES (Z-Index War Resolution)
+   ======================================== */
+
+/* Ensure the main page has enough space at the bottom 
+   so the lowest cards can be scrolled past the floating cart */
+body {
+    padding-bottom: 120px !important; 
+}
+
+/* Ensure ALL pop-up forms sit firmly on top of the cart */
+.residency-form-overlay {
+    z-index: 9999 !important; 
+}
+
+
+/* ========================================
+   FLOATING KIOSK BATCH CART WIDGET
+   Applies ONLY to queue.php
+   ======================================== */
+
+#kiosk-cart-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #ffffff; 
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 20px;
+    z-index: 900; /* ✅ Lowered so forms can appear on top */
+    transform: translateY(100px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border-left: 5px solid var(--gold, #c8a84b); 
+}
+
+#kiosk-cart-widget.visible {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.kiosk-cart-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.kiosk-cart-icon {
+    font-size: 24px;
+    background: #f1f5f9;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.kiosk-cart-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.kiosk-cart-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.5px;
+}
+
+.kiosk-cart-count-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+#kiosk-cart-count {
+    color: #2c57e5;
+}
+
+.kiosk-cart-btn {
+    background: #2c57e5;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.kiosk-cart-btn:hover:not(:disabled) { 
+    background: #1e3fa7; 
+    transform: translateY(-2px);
+}
+
+.kiosk-cart-btn:disabled { 
+    background: #94a3b8; 
+    cursor: not-allowed; 
+}
+
+.kiosk-cart-clear {
+    background: transparent;
+    color: #ef4444;
+    border: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.2s;
+}
+
+.kiosk-cart-clear:hover { 
+    text-decoration: underline; 
+    color: #b91c1c;
+}
+
+/* ========================================
+   MOBILE & TABLET RESPONSIVE FIXES
+   ======================================== */
+@media (max-width: 768px) {
+    #kiosk-cart-widget {
+        bottom: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        
+        /* Flatten the bottom corners */
+        border-radius: 16px 16px 0 0 !important; 
+        
+        /* Move the gold border to the top instead of the left */
+        border-left: none !important;
+        border-top: 5px solid var(--gold, #c8a84b) !important;
+        
+        /* Spread the items out evenly on mobile */
+        justify-content: space-between !important;
+    }
+
+    /* Add a bit more padding for mobile scrolling */
+    body {
+        padding-bottom: 140px !important;
+    }
+    
+    /* Make the buttons slightly smaller to fit better */
+    .kiosk-cart-btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ========================================
+   PRIORITY MODAL STYLES
+   ======================================== */
+
+#priority-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+}
+
+#priority-overlay.active {
+    display: flex;
+}
+
+/* Modal Box */
+.priority-modal {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: priorityFadeIn 0.25s ease;
+}
+
+.priority-modal h2 {
+    margin-bottom: 8px;
+    color: #0f172a;
+    font-weight: 800;
+}
+
+.priority-modal p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.priority-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.priority-btn {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #f1f5f9;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.priority-btn:hover {
+    background: #2c57e5;
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Cancel */
+.priority-cancel {
+    margin-top: 15px;
+    background: none;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.priority-cancel:hover {
+    color: #ef4444;
+}
+
+/* Animation */
+@keyframes priorityFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

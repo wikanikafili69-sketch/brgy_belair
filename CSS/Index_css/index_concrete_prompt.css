@@ -1,0 +1,121 @@
+/* ========================================
+   BARANGAY — CONCRETE POURING CERTIFICATION
+   CSS/index_concrete_prompt.css
+   Inherits base from index_residency_prompt.css
+   ======================================== */
+
+/* ── FIELD ───────────────────────────────────────────── */
+.cp-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+}
+
+.cp-field.has-error .rbi-input,
+.cp-field.has-error .rbi-select {
+    border-color: #dc2626 !important;
+    background: #fff5f5;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.08);
+}
+
+/* ── ERROR MESSAGES ──────────────────────────────────── */
+.cp-error-msg {
+    font-size: 0.73rem;
+    color: #dc2626;
+    font-weight: 500;
+    min-height: 16px;
+    display: block;
+}
+
+/* ── TIME RANGE ──────────────────────────────────────── */
+.cp-time-range {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cp-time-input {
+    flex: 1;
+    min-width: 0;
+}
+
+.cp-time-sep {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #7a92aa;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.cp-field.has-error .cp-time-input {
+    border-color: #dc2626 !important;
+    background: #fff5f5;
+}
+
+
+/* ========================================
+   BARANGAY — CONCRETE POURING CERTIFICATION
+   CSS/index_concrete_prompt.css
+   Inherits base from index_residency_prompt.css
+   ======================================== */
+
+/* ── FIELD ───────────────────────────────────────────── */
+.cp-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+}
+
+.cp-field.has-error .rbi-input,
+.cp-field.has-error .rbi-select {
+    border-color: #dc2626 !important;
+    background: #fff5f5;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.08);
+}
+
+/* ── ERROR MESSAGES ──────────────────────────────────── */
+.cp-error-msg {
+    font-size: 0.73rem;
+    color: #dc2626;
+    font-weight: 500;
+    min-height: 16px;
+    display: block;
+}
+
+/* ── TIME RANGE ──────────────────────────────────────── */
+.cp-time-range {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cp-time-input {
+    flex: 1;
+    min-width: 0;
+}
+
+.cp-time-sep {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #7a92aa;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.cp-field.has-error .cp-time-input {
+    border-color: #dc2626 !important;
+    background: #fff5f5;
+}
+
+/* ── FLATPICKR RANGE INPUT OVERRIDES ─────────────────── */
+#cp-date-range {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+#cp-date-range:hover {
+    background-color: rgba(255, 255, 255, 1);
+}

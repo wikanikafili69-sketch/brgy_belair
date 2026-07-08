@@ -1,0 +1,135 @@
+/* ========================================
+   BARANGAY — BUSINESS CLEARANCE
+   CSS/index_business_prompt.css
+   Inherits base from index_residency_prompt.css
+   ======================================== */
+
+/* ── RADIO SECTION ───────────────────────────────────── */
+.biz-radio-section {
+    padding: 4px 0;
+}
+
+.biz-radio-section > .rbi-label {
+    display: block;
+    margin-bottom: 12px;
+}
+
+/* ── RADIO GROUP ─────────────────────────────────────── */
+.biz-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.biz-radio-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-dark, #0f2240);
+    cursor: pointer;
+    user-select: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border, #dce4ee);
+    background: #fafcff;
+    transition: border-color 0.18s, background 0.18s;
+}
+
+.biz-radio-label:hover {
+    border-color: #1e3a5f;
+    background: #ecf2fc;
+}
+
+/* Hide native radio */
+.biz-radio {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Custom radio */
+.biz-radio-custom {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #94a3b8;
+    background: #ffffff;
+    flex-shrink: 0;
+    position: relative;
+    transition: border-color 0.18s;
+}
+
+.biz-radio-custom::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: #1e3a5f;
+    opacity: 0;
+    transform: scale(0.4);
+    transition: opacity 0.18s, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.biz-radio:checked + .biz-radio-custom {
+    border-color: #1e3a5f;
+}
+
+.biz-radio:checked + .biz-radio-custom::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ── SECTION DIVIDER ─────────────────────────────────── */
+.biz-section-divider {
+    height: 1px;
+    background: var(--border, #dce4ee);
+    margin: 16px 0;
+}
+
+/* ── FIELD ───────────────────────────────────────────── */
+.biz-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+}
+
+.biz-field.has-error .rbi-input,
+.biz-field.has-error .rbi-select {
+    border-color: #dc2626 !important;
+    background: #fff5f5;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.08);
+}
+
+/* ── ERROR MESSAGES ──────────────────────────────────── */
+.biz-error-msg {
+    font-size: 0.73rem;
+    color: #dc2626;
+    font-weight: 500;
+    min-height: 16px;
+    display: block;
+}
+
+.biz-radio-section.has-error > .biz-error-msg {
+    margin-top: 6px;
+}
+
+/* ── KIND OF BUSINESS — HIDDEN BY DEFAULT ────────────── */
+.biz-kind-field {
+    display: none;
+    overflow: hidden;
+}
+
+.biz-kind-field.biz-kind-visible {
+    display: flex;
+    animation: bizKindSlideIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes bizKindSlideIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,178 @@
+/* ============================================================
+   BARANGAY 101 — ADMIN GALLERY CSS
+   File: CSS/Admin_css/admin_gallery.css
+   ============================================================ */
+
+/* Gallery Grid Layout */
+.admin-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+/* Individual Gallery Card */
+.admin-gallery-card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--blue-light);
+}
+
+/* Image Thumbnail Area */
+.admin-gallery-thumb {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    position: relative;
+    background: var(--bg);
+    overflow: hidden;
+}
+
+.admin-gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.admin-gallery-card:hover .admin-gallery-thumb img {
+    transform: scale(1.05);
+}
+
+/* Status Badges */
+.admin-gallery-status {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.status-active {
+    background: rgba(34, 197, 94, 0.9);
+    color: white;
+}
+
+.status-hidden {
+    background: rgba(139, 92, 246, 0.9);
+    color: white;
+}
+
+/* Text Info Area */
+.admin-gallery-info {
+    padding: 16px;
+    flex: 1;
+}
+
+.admin-gallery-caption {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.3;
+    margin-bottom: 6px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.admin-gallery-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Action Buttons Area */
+.admin-gallery-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--bg);
+    border-top: 1px solid var(--border-light);
+}
+
+.admin-gallery-actions .btn-ghost {
+    background: var(--white);
+}
+
+/* =========================================
+   Image Upload Preview (Modal)
+========================================= */
+.image-preview-container {
+    width: 100%;
+    height: 200px;
+    border: 2px dashed var(--border-light);
+    border-radius: var(--radius-md);
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: all var(--transition);
+}
+
+.image-preview-container:hover {
+    border-color: var(--blue-light);
+    background: rgba(44, 87, 229, 0.05);
+}
+
+.preview-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+}
+
+.preview-placeholder i {
+    font-size: 2.5rem;
+    color: var(--blue-light);
+}
+
+.preview-placeholder p {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+#imgPreview {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000; /* Better contrast for previewing */
+}
+
+.hidden-input {
+    display: none;
+}
+
+/* Ensure Sidebar is clickable and stays on top in mobile view */
+@media (max-width: 768px) {
+    #sidebar {
+        z-index: 9999 !important; /* Forces it above galleries and overlays */
+    }
+    
+    /* Optional: Ensure the topbar hamburger menu stays clickable too */
+    .topbar, #btnSidebarToggle {
+        z-index: 10000 !important; 
+    }
+}

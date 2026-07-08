@@ -1,0 +1,30 @@
+/* ========================================
+   BARANGAY — CERTIFICATE OF LOW INCOME
+   CSS/index_low_income_prompt.css
+   Inherits base from index_residency_prompt.css
+   ======================================== */
+
+/* ── FIELD ───────────────────────────────────────────── */
+.li-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+}
+
+.li-field.has-error .rbi-input,
+.li-field.has-error .rbi-select {
+    border-color: #dc2626 !important;
+    background: #fff5f5;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.08);
+}
+
+/* ── ERROR MESSAGES ──────────────────────────────────── */
+.li-error-msg {
+    font-size: 0.73rem;
+    color: #dc2626;
+    font-weight: 500;
+    min-height: 16px;
+    display: block;
+}

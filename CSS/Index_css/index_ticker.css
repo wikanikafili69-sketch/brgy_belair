@@ -1,0 +1,106 @@
+/* ========================================
+   BARANGAY MANAGEMENT SYSTEM
+   index_ticker.css
+   ======================================== */
+
+.ticker-bar {
+    width: 100%;
+    background: var(--navy-mid);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex; /* IMPORTANT: Places Track 1 and Track 2 side-by-side */
+}
+
+.ticker-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    flex-shrink: 0;
+    /* 90s is slower because the text track is much longer now. Adjust if needed. */
+    animation: scrollTicker 90s linear infinite; 
+}
+
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--white);
+    padding: 0 30px;
+}
+
+.ticker-sep {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-left: 30px;
+}
+
+/* Tag Styles */
+.ticker-tag-gold, 
+.ticker-tag-red, 
+.ticker-tag-blue,
+.ticker-tag-green,
+.ticker-tag-purple {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 12px;
+}
+
+/* 1. Gold */
+.ticker-tag-gold { 
+    background: rgba(200, 168, 75, 0.15); 
+    color: var(--gold); 
+    border: 1px solid rgba(200, 168, 75, 0.3);
+}
+/* 2. Red */
+.ticker-tag-red { 
+    background: rgba(224, 80, 80, 0.15); 
+    color: var(--red); 
+    border: 1px solid rgba(224, 80, 80, 0.3);
+}
+/* 3. Blue */
+.ticker-tag-blue { 
+    background: rgba(44, 87, 229, 0.15); 
+    color: var(--blue-light); 
+    border: 1px solid rgba(44, 87, 229, 0.3);
+}
+/* 4. Green */
+.ticker-tag-green { 
+    background: rgba(34, 197, 94, 0.15); 
+    color: #4ade80; 
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+/* 5. Purple */
+.ticker-tag-purple { 
+    background: rgba(168, 85, 247, 0.15); 
+    color: #c084fc; 
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+/* ── THE SEAMLESS LOOP ANIMATION ── */
+@keyframes scrollTicker {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Moves exactly 100% of ONE track's width.
+           Because Track 2 is right behind Track 1, it slides perfectly into place without jumping! */
+        transform: translateX(-100%);
+    }
+}
+
+/* Pause animation on hover */
+.ticker-bar:hover .ticker-track {
+    animation-play-state: paused;
+}
+

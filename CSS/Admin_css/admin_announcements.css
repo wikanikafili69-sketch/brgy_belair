@@ -1,0 +1,314 @@
+/* ============================================================
+   BARANGAY 101 — ADMIN ANNOUNCEMENTS STYLES
+   File: CSS/Admin_css/admin_announcements.css
+   ============================================================ */
+
+/* ── Custom Select & Search ───────────────────────────────── */
+.filter-select {
+    background: var(--bg);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    color: var(--text-mid);
+    font-family: var(--font-body);
+    outline: none;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.filter-select:focus, 
+.filter-select:hover {
+    border-color: var(--blue);
+    color: var(--text-dark);
+}
+
+.ann-search {
+    width: 220px;
+}
+.ann-search input {
+    width: 100%;
+}
+
+/* ── Announcement Table Formatting ────────────────────────── */
+.ann-table td {
+    vertical-align: top;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.ann-cell {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.ann-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+/* Priority Colors */
+.icon--urgent { background: rgba(239, 68, 68, 0.1); color: var(--red); }
+.icon--important { background: rgba(245, 158, 11, 0.15); color: var(--orange); }
+.icon--normal { background: rgba(44, 87, 229, 0.1); color: var(--blue); }
+.icon--draft { background: var(--border-light); color: var(--text-muted); }
+
+.ann-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ann-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.3;
+}
+
+.ann-snippet {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    display: -webkit-box;
+    
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+/* ── Status Dots ──────────────────────────────────────────── */
+.stat-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+.dot-active { background: var(--green); }
+.dot-scheduled { background: var(--purple); }
+.dot-draft { background: var(--muted); }
+
+/* ── Announcement Action Buttons ──────────────────────────── */
+.btn-act--edit {
+    background: rgba(200, 168, 75, 0.12);
+    color: var(--gold);
+}
+.btn-act--edit:hover {
+    background: var(--gold);
+    color: var(--navy);
+}
+
+.btn-act--delete {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--red);
+}
+.btn-act--delete:hover {
+    background: var(--red);
+    color: #fff;
+}
+
+/* ── Pagination Styles ────────────────────────────────────── */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 22px;
+    border-top: 1px solid var(--border-light);
+    background: var(--white);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.page-info {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.page-info strong {
+    color: var(--text-dark);
+}
+
+.page-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.page-btn {
+    width: 32px; 
+    height: 32px;
+    border: 1px solid var(--border-light);
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    cursor: pointer; 
+    font-size: 0.78rem; 
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--text-mid);
+    transition: all var(--transition);
+}
+
+.page-btn:hover:not(:disabled) {
+    background: var(--navy); 
+    color: var(--white); 
+    border-color: var(--navy);
+}
+
+.page-btn.active {
+    background: var(--blue); 
+    color: var(--white); 
+    border-color: var(--blue);
+    box-shadow: 0 2px 8px var(--blue-glow);
+}
+
+.page-btn:disabled {
+    opacity: 0.5; 
+    cursor: not-allowed;
+    background: transparent;
+}
+
+/* ── Responsive Adjustments ───────────────────────────────── */
+@media (max-width: 768px) {
+    .ann-search {
+        width: 100%;
+        margin-top: 8px;
+    }
+    .panel-header-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .filter-select {
+        flex: 1;
+    }
+}
+
+/* ── Broadcast SMS Specifics ──────────────────────────────── */
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+.radio-group-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.radio-group-cards label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all var(--transition);
+}
+
+.radio-group-cards label:hover {
+    border-color: var(--blue);
+    background: rgba(44, 87, 229, 0.03);
+}
+
+.radio-group-cards input[type="radio"]:checked + label,
+.radio-group-cards label:has(input[type="radio"]:checked) {
+    border-color: var(--blue);
+    background: rgba(44, 87, 229, 0.08);
+    font-weight: 600;
+    color: var(--blue);
+}
+
+/* ── Responsive Adjustments (Unified Mobile Support) ───────────────────────── */
+@media (max-width: 768px) {
+    /* Stack the search bar and filters */
+    .ann-search {
+        width: 100%;
+        margin-top: 8px;
+    }
+    .panel-header-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .filter-select {
+        flex: 1;
+        min-width: 140px; /* Prevents selects from getting too squished */
+    }
+
+    /* Stack the 3-column stats cards into 1 column */
+    .cards-grid[style*="grid-template-columns: repeat(3, 1fr)"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Make the table horizontally scrollable */
+    .table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .ann-table {
+        min-width: 800px; /* Forces scrolling instead of squishing text */
+    }
+
+    /* Stack the Create/Edit Modal internal 2-column grids into 1 column */
+    div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Stack the SMS Target radio button cards into 1 column */
+    .radio-group-cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stack the top page header buttons */
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .page-header > div:nth-child(2) {
+        width: 100%;
+        flex-direction: column;
+    }
+    .page-header .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Very Small Phones (Max 480px) */
+@media (max-width: 480px) {
+    /* Stack modal footer buttons */
+    .modal-footer {
+        flex-direction: column;
+    }
+    .modal-footer button {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Make pagination buttons wrap neatly */
+    .pagination {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .page-controls {
+        width: 100%;
+        justify-content: center;
+    }
+}

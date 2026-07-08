@@ -1,0 +1,30 @@
+/* ========================================
+   BARANGAY — FIRST TIME JOB SEEKER
+   CSS/index_job_seeker_prompt.css
+   Inherits base from index_residency_prompt.css
+   ======================================== */
+
+/* ── FIELD ───────────────────────────────────────────── */
+.js-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+}
+
+.js-field.has-error .rbi-input,
+.js-field.has-error .rbi-select {
+    border-color: #dc2626 !important;
+    background: #fff5f5;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.08);
+}
+
+/* ── ERROR MESSAGES ──────────────────────────────────── */
+.js-error-msg {
+    font-size: 0.73rem;
+    color: #dc2626;
+    font-weight: 500;
+    min-height: 16px;
+    display: block;
+}
